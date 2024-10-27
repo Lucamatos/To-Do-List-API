@@ -6,6 +6,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TodoService {
@@ -29,6 +30,11 @@ public class TodoService {
                 Sort.by("name").ascending());
         return todoRepository.findAll(sort);
     }
+
+    public Optional<Todo> findTodoById (Long id) {
+        return todoRepository.findById(id);
+    }
+
     public List<Todo> delete(Long id) {
         todoRepository.deleteById(id);
         return list();
