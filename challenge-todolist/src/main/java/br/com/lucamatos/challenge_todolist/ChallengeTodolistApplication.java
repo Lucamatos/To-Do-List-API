@@ -8,7 +8,6 @@ public class ChallengeTodolistApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ChallengeTodolistApplication.class, args);
-        System.out.println("Hello World");
     }
 
 }
