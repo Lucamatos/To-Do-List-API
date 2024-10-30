@@ -1,7 +1,8 @@
 package br.com.lucamatos.challenge_todolist.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.AssertTrue;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 
 @Entity
@@ -10,12 +11,23 @@ public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotEmpty
+    @NotBlank
     private String name;
+    @NotBlank
     private String description;
+    @AssertTrue
     private boolean status;
     @Positive
     private int priority;
+
+    public Todo() {
+    }
+    public Todo(String name, String description, boolean status, int priority) {
+        this.name = name;
+        this.description = description;
+        this.status = status;
+        this.priority = priority;
+    }
 
     public Long getId() {
         return id;
